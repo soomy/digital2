@@ -1,0 +1,6 @@
+vsim -t 100ps trafficLight
+add wave -hex *
+force ClkxCI 0 0 , 1 1 ns -repeat 2 ns
+force RstxRI 1 0 , 0 10 ns
+force BtnxDI 0 0 , 1 5 ns
+run 15 ns
