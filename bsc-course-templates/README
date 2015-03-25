@@ -1,0 +1,152 @@
+Here are some usefull informations when using Submodules
+
+
+Procedure if you want to change something in the module and then update the Submodule:
+
+go to the repository where you'll apply some changes:
+
+git pull
+make your changes
+git add .
+git commit -m "your commit description"
+git push
+
+
+move to the repos where the upper repos is used as Submodule:
+
+move to the Submodule directory
+
+if you're not on master branch, move to it by running:
+git checkout master 
+git pull
+cd ..
+git add .
+git commit -m "your commit description"
+git push
+
+
+
+How to remove a Submodule:
+
+1)	Open .gitmodules with a text editor and remove the three lines relevant 
+	to the submodule being removed
+
+	These lines have to be removed in case of removing bsc-course-templates:
+
+	[submodule "bsc-course-templates"]
+		path = bsc-course-templates
+		url = git://pm.ti.bfh.ch/bsc-course-templates.git
+
+2)	Move in directory .git and open the config file with a text editor and 
+	remove the submodule’s entry.
+
+	The submodule’s entry in .git/config will only be present if you’ve run
+	“git submodule init” on the repository. If you haven’t, you can skip 
+	this step.  
+	These lines have to be removed in case of removing bsc-course-templates:
+
+	[submodule "bsc-course-templates"]
+	url = git://pm.ti.bfh.ch/bsc-course-templates.git
+
+3) 	Remove the path created for the submodule. This one is easy. 
+	Simply run “git rm –cached [plugin path]“.
+	
+	In case of removing bsc-course-templates run: git rm --cached bsc-course-templates
+	!!! Delete the / at the end in case of using the Tabkey
+
+
+
+
+For more info look about Submodules refer to this webpage:
+http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/
+
+
+
+How to fix bad reference issue:
+
+
+If you receive something like this: fatal: reference is not a tree: 0a7295196010431a107fada787d899711e11a367
+
+Here is the way to fix that.
+
+Enter the following command in the repos where you received the problem.
+
+git log --oneline -p -- name of your submodule     !!!without the / at the end
+
+Then copy the first Subproject commit, it could be another commit if the whole procedure don't work.
+
+Then change to the directory of your submodule.
+
+cd submodulename
+
+then
+
+git checkout the_commit_you've_copied
+
+then change back to the repos directory
+
+cd ..
+
+git add yoursubmodulename
+
+git submodule update
+
+git diff
+
+git diff --cached
+
+git commit -m "fixing bad reference issue"
+
+git push
+
+
+Then try again to make your git clone followed by git submodule init and the git submodule update.
+
+If that doesn't work restart the procedure with another Subproject commit.  
+
+For more infIf you receive something like this: fatal: reference is not a tree: 0a7295196010431a107fada787d899711e11a367
+
+Here is the way to fix that.
+
+Enter the following command in the repos where you received the problem.
+
+git log --oneline -p -- name of your submodule     !!!without the / at the end
+
+Then copy the first Subproject commit, it could be another commit if the whole procedure don't work.
+
+Then change to the directory of your submodule.
+
+cd submodulename
+
+then
+
+git checkout the_commit_you've_copied
+
+then change back to the repos directory
+
+cd ..
+
+git add yoursubmodulename
+
+git submodule update
+
+git diff
+
+git diff --cached
+
+git commit -m "fixing bad reference issue"
+
+git push
+
+
+Then try again to make your git clone followed by git submodule init and the git submodule update.
+
+If that doesn't work restart the procedure with another Subproject commit.  
+
+For more informations: 
+http://stackoverflow.com/questions/2155887/git-submodule-head-reference-is-not-a-tree-error
+
+
+
+
+
