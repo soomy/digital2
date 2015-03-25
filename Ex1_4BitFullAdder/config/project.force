@@ -1,6 +1,8 @@
-vsim -t 100ps trafficLight
+vsim -t ps fullAdder
 add wave -hex *
-force ClkxCI 0 0 , 1 1 ns -repeat 2 ns
-force RstxRI 1 0 , 0 10 ns
-force BtnxDI 0 0 , 1 5 ns
-run 15 ns
+force Ope1xDI 0 0 , 1 1 ns -repeat 2 ns
+force Ope2xDI 0 0 , 1 2 ns -repeat 4 ns
+force CIxDI   0 0 , 1 4 ns -repeat 8 ns
+force RstxRI  1 0 , 0 10 ns
+force BtnxDI  0 0 , 1 5 ns
+run 8 ns
