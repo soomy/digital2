@@ -1,4 +1,4 @@
-vsim -t ns fullAdder
+vsim -t ns FullAdder
 add wave -hex *
 force Ope1xDI 0 0 , 1 1 ns -repeat 2 ns
 force Ope2xDI 0 0 , 1 2 ns -repeat 4 ns

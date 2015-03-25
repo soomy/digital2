@@ -1,2 +1,4 @@
-fullAdder-entity.vhdl
-fullAdder-behavior.vhdl
+FullAdder-entity.vhdl
+FullAdder-behavior.vhdl
+GenBitAdder-entity.vhdl
+GenBitAdder-behavior.vhdl
