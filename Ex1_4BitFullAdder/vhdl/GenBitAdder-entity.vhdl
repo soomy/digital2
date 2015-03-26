@@ -7,7 +7,7 @@ entity GenBitAdder is
 	);
 	port(
 		Ope1xDI, Ope2xDI	: in std_logic_vector(VECTOR_WIDTH - 1 downto 0);
-    	CIxDI				: in std_logic;
+    	-- CIxDI			: in std_logic;
     	SumxDO				: out std_logic_vector(VECTOR_WIDTH - 1 downto 0);
     	COxDO				: out std_logic
 	);

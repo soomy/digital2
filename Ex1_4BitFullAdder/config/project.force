@@ -1,6 +1,6 @@
-vsim -t ns FullAdder
+vsim -t ps GenBitAdder
 add wave -hex *
-force Ope1xDI 0 0 , 1 1 ns -repeat 2 ns
-force Ope2xDI 0 0 , 1 2 ns -repeat 4 ns
-force CIxDI   0 0 , 1 4 ns -repeat 8 ns
-run 8 ns
+force Ope1xDI 0010 0 , 1011 1 ns, 1111 2ns
+force Ope2xDI 0101 0 , 1100 1 ns, 1111 2ns
+#force CIxDI   0000 0 , 1 4 ns
+run 3 ns

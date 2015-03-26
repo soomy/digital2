@@ -11,15 +11,15 @@ architecture structural of GenBitAdder is
 	
 begin
 	
-	AdderGen : for stage in x to VECTOR_WIDTH - 1 generate
+	AdderGen : for stage in 0 to VECTOR_WIDTH - 1 generate
 		LSB: if stage = 0 generate
-			FullAdder port map(
+			Adder : FullAdder port map (
 				Ope1xDI(stage), Ope2xDI(stage), '0', SumxDO(stage), CCxD(stage)			
 			);
 		end generate LSB;
 		UPR: if stage > 0 generate
-			FullAdder port map(
-				Ope1xDI(stage), Ope2xDI(stage), CCxD(stage - 1), SumxDO(stage), CCxD(stage)			
+			Adder : FullAdder port map (
+				Ope1xDI(stage), Ope2xDI(stage), CCxD(stage - 1), SumxDO(stage), CCxD(stage)	
 			);
 		end generate UPR;
 	end generate AdderGen;
