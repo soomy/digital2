@@ -1,0 +1,6 @@
+vsim -t ps GenBitSubtractor
+add wave -hex *
+force MinxDI 0010 0 , 1011 1 ns, 1111 2ns
+force SubxDI 0101 0 , 1100 1 ns, 1111 2ns
+#force CIxDI   0000 0 , 1 4 ns
+run 3 ns
